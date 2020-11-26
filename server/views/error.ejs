@@ -1,0 +1,18 @@
+<!--
+
+FileName : error.ejs
+Author: Sage Groupe
+Date: 12-11-2020
+-->
+<%- include partials/header.ejs %>
+<%- include partials/main_nav.ejs %>
+
+
+<div class="container">
+<p><i class="fas fa-10x fa-bug"></i></p>
+<h1><%= message %></h1>
+<h2><%= error.status %></h2>
+<pre><%= error.stack %></pre>
+</div>
+<%- include partials/bottom_nav.ejs %>
+<%- include partials/footer.ejs %>

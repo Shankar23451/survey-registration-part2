@@ -1,0 +1,67 @@
+<!--
+Author: Sage Groupe
+Date: 12-11-2020
+FileName : main_nav.ejs
+
+-->
+
+<!--Main nav-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   
+  <a class="navbar-brand" href="#" >
+    <img src="/Assets/images/logo.png" width="80" alt="">
+  </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="jumbotron bg-dark text-light ">
+        <p class="lead">WE ARE MAKING A SURVEY THAT WILL HELP COMPANIES TO KNOW ABOUT THEM</p>
+      </div>
+      <ul class="navbar-nav ml-auto">
+
+        <% if(typeof displayName == 'string' && displayName) { %>
+        <% if (title == "Survey List") { %>
+        <li class="nav-item active ">
+          <% } else { %>
+        <li class="nav-item"></li>
+        <% } %>
+        <a class="nav-link" href="/survey-list"><i class="fas fa-lg fa-igloo"></i> Show Surveys List</a>
+        </li>
+        <% }  else { %>
+
+          <% } %>
+
+
+        <% if (title == "Add Survey") { %>
+        <li class="nav-item active ">
+          <% } else { %>
+        <li class="nav-item"></li>
+        <% } %>
+        <a class="nav-link" href="/survey-list/add"><i class="fas fa-lg fa-question-circle"></i>Create Survey </a>
+        </li>
+
+        
+        <% if (typeof displayName == 'string' && displayName) { %>
+          <li class="navbar-text"><i class="fas fa-lg fa-user"></i> Welcome, <%= displayName %></li>
+          <li class="nav-item"><a href="/user/logout" class="nav-link">
+          <i class="fas fa-lg fa-sign-out-alt"></i> Logout</a></li>
+            <% } else { %>
+          <li class="nav-item"></li>
+          <a class="nav-link" href="/user/login"><i class="fas fa-lg fa-igloo"></i> User Login</a>
+          </li>
+          <% if (title == "Register") { %>
+            <li class="nav-item active ">
+              <% } else { %>
+            <li class="nav-item"></li>
+            <% } %>
+            <a class="nav-link" href="/user/register"><i class="fas fa-lg fa-igloo"></i> Register</a>
+            </li>
+          <% } %>
+            
+
+    </div>
+  </nav>

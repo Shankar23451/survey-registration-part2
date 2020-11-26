@@ -1,0 +1,73 @@
+<!--
+Author: Sage Groupe
+Date: 12-11-2020
+FileName : list.ejs
+
+Contact List views
+-->
+
+
+<%- include ./partials/header.ejs %>
+
+<%- include ./partials/main_nav.ejs %>
+  
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="row">
+        <div class="offset-md-1 col-md-11">
+            <h1><%= title %></h1>
+
+                <a href="/survey-list/add" class="btn btn-primary" role="button">
+                <i class="fas fa-plus-circle"></i>Create a Survey</a>
+         
+            <br>
+            <table class="table table-bordered table-striped table-hover">
+                <!-- Header Row-->
+                <tr class="d-flex">
+                    <% if(typeof displayName == 'string' && displayName) { %>
+                        <th class="text-center col-2">Title</th>
+                        <th class="text-center col-3">Subtitle</th>
+                        <th class="text-center col-5">Description</th>        
+                    <% } else { %>
+                        <th class="text-center col-2">Title</th>
+                        <th class="text-center col-3">Subtitle</th>
+                        <th class="text-center col-5">Description</th>
+                       
+                    <% } %>
+                </tr>
+
+                <!-- Repeatable Template Row -->
+
+                <% for(let count = 0; count < SurveyList.length; count++) { %>
+                    <tr class="d-flex">
+                    
+                        <td class="text-center col-2"><%= SurveyList[count].title %></td>
+                        <td class="text-center col-3"><%= SurveyList[count].subtitle %></td>
+                        <td class="text-center col-5"><%= SurveyList[count].description %></td>
+                                
+                        <td class="text-center col-1">
+                            <a href="/survey-list/edit/<%= SurveyList[count]._id %>" class="btn btn-primary btn-sm">
+                            <i class="fas fa-pencil-alt"></i> Update</a>
+                        </td>
+                        <td class="text-center col-1">
+                            <a href="/survey-list/delete/<%= SurveyList[count]._id %>" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash-alt"></i> Delete</a>
+                        </td>
+                        
+                    </tr>
+                <% } %>
+            </table>
+        </div>
+    </div>
+  </main>
+  
+<%- include ./partials/bottom_nav.ejs %>  
+
+<%- include ./partials/footer.ejs %>
+  
+
+
+
+
+
